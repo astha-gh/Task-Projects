@@ -84,3 +84,11 @@ npm start
 cd frontend
 npm install
 npm run dev
+```
+
+---
+
+## Author
+Astha Devadiga
+asthadevadiga7@gmail.com
+
