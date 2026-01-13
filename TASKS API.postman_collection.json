@@ -1,0 +1,590 @@
+{
+	"info": {
+		"_postman_id": "5ab7c769-c262-496f-aee7-9ffa7be84215",
+		"name": "TASKS API",
+		"description": "Basic APIs for authentication and CRUD operations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39629641"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Primetrade.ai\",\r\n  \"email\": \"pleasehire1@gmail.com\",\r\n  \"password\": \"hipassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new user account.\n\nThis endpoint creates a user with a default role of \"user\"  \nand returns a JWT token upon successful registration.\n\nRequest Body:\n\n- name (string, required)\n    \n- email (string, required, unique)\n    \n- password (string, required)\n    \n\nResponse:\n\n- User details\n    \n- JWT token for authentication"
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Primetrade.ai\",\r\n  \"email\": \"pleasehireB@gmail.com\",\r\n  \"password\": \"hipasswordB\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"_id\": \"69664b34b63d00e453b833e7\",\r\n    \"name\": \"Primetrade.ai\",\r\n    \"email\": \"pleasehireb@gmail.com\",\r\n    \"role\": \"user\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YjM0YjYzZDAwZTQ1M2I4MzNlNyIsImlhdCI6MTc2ODMxMTYwNCwiZXhwIjoxNzY4OTE2NDA0fQ.KvIL9Zgt9mn2MEzDHvCUY1cNzw7Iqd1Y6J4Q8oRcg3Y\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pleasehire1@gmail.com\",\r\n  \"password\": \"hipassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Authenticates an existing user.\n\nValid credentials return a JWT token which must be included  \nas a Bearer token in the Authorization header for all  \nprotected routes.\n\nRequest Body:\n\n- email (string, required)\n    \n- password (string, required)\n    \n\nResponse:\n\n- User details\n    \n- JWT token"
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"pleasehireA@gmail.com\",\r\n  \"password\": \"hipasswordA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"_id\": \"69664aceb63d00e453b833e4\",\r\n    \"name\": \"Primetrade.ai\",\r\n    \"email\": \"pleasehirea@gmail.com\",\r\n    \"role\": \"user\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YWNlYjYzZDAwZTQ1M2I4MzNlNCIsImlhdCI6MTc2ODMxMTYzNywiZXhwIjoxNzY4OTE2NDM3fQ.oNjkhY6oyB6B_oB_ea3npQAipQRoSaJFScOedCBYIHk\"\r\n}"
+						}
+					]
+				}
+			],
+			"description": "Registration and Login API"
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Api Checking\",\r\n  \"description\": \"Efficient\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/tasks/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								""
+							]
+						},
+						"description": "Creates a new task for the authenticated user.\n\nThe task is associated with the logged-in user.  \nAdmins can create tasks with full access.\n\nHeaders:\n\n- Authorization: Bearer\n    \n\nRequest Body:\n\n- title (string, required)\n    \n- description (string, optional)\n    \n\nAuthentication:\n\n- Required (JWT)"
+					},
+					"response": [
+						{
+							"name": "Create Task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YWNlYjYzZDAwZTQ1M2I4MzNlNCIsImlhdCI6MTc2ODMxMTYzNywiZXhwIjoxNzY4OTE2NDM3fQ.oNjkhY6oyB6B_oB_ea3npQAipQRoSaJFScOedCBYIHk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Creating a example\",\r\n  \"description\": \"API working\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/tasks/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"title\": \"Creating a example\",\r\n    \"description\": \"API working\",\r\n    \"status\": \"todo\",\r\n    \"owner\": \"69664aceb63d00e453b833e4\",\r\n    \"_id\": \"69664bbcb63d00e453b833eb\",\r\n    \"createdAt\": \"2026-01-13T13:42:20.900Z\",\r\n    \"updatedAt\": \"2026-01-13T13:42:20.900Z\",\r\n    \"__v\": 0\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/tasks/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								""
+							]
+						},
+						"description": "Fetches tasks based on user role.\n\n- Admin users receive all tasks.\n    \n- Regular users receive only their own tasks.\n    \n\nHeaders:\n\n- Authorization: Bearer\n    \n\nResponse:\n\n- List of tasks sorted by creation date (latest first)\n    \n\nAuthentication:\n\n- Required (JWT)"
+					},
+					"response": [
+						{
+							"name": "Get Task",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YWNlYjYzZDAwZTQ1M2I4MzNlNCIsImlhdCI6MTc2ODMxMTYzNywiZXhwIjoxNzY4OTE2NDM3fQ.oNjkhY6oyB6B_oB_ea3npQAipQRoSaJFScOedCBYIHk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/tasks/",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "[\r\n    {\r\n        \"_id\": \"69664bbcb63d00e453b833eb\",\r\n        \"title\": \"Creating a example\",\r\n        \"description\": \"API working\",\r\n        \"status\": \"todo\",\r\n        \"owner\": \"69664aceb63d00e453b833e4\",\r\n        \"createdAt\": \"2026-01-13T13:42:20.900Z\",\r\n        \"updatedAt\": \"2026-01-13T13:42:20.900Z\",\r\n        \"__v\": 0\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Api Checking\",\r\n  \"description\": \"Efficient and scalable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/tasks/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Updates an existing task.\n\n- Admin users can update any task.\n    \n- Regular users can update only their own tasks.\n    \n\nHeaders:\n\n- Authorization: Bearer\n    \n\nPath Parameters:\n\n- id (string, required) — Task ID\n    \n\nRequest Body (any field is optional):\n\n- title (string)\n    \n- description (string)\n    \n- status (string)\n    \n\nAuthentication:\n\n- Required (JWT)"
+					},
+					"response": [
+						{
+							"name": "Update Task",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YWNlYjYzZDAwZTQ1M2I4MzNlNCIsImlhdCI6MTc2ODMxMTYzNywiZXhwIjoxNzY4OTE2NDM3fQ.oNjkhY6oyB6B_oB_ea3npQAipQRoSaJFScOedCBYIHk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Creating a example\",\r\n  \"description\": \"API working modified\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/tasks/69664bbcb63d00e453b833eb",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"69664bbcb63d00e453b833eb"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"_id\": \"69664bbcb63d00e453b833eb\",\r\n    \"title\": \"Creating a example\",\r\n    \"description\": \"API working modified\",\r\n    \"status\": \"todo\",\r\n    \"owner\": \"69664aceb63d00e453b833e4\",\r\n    \"createdAt\": \"2026-01-13T13:42:20.900Z\",\r\n    \"updatedAt\": \"2026-01-13T13:43:42.913Z\",\r\n    \"__v\": 0\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/tasks/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{task_id}"
+								}
+							]
+						},
+						"description": "Deletes an existing task.\n\n- Admin users can delete any task.\n    \n- Regular users can delete only their own tasks.\n    \n\nHeaders:\n\n- Authorization: Bearer\n    \n\nPath Parameters:\n\n- id (string, required) — Task ID\n    \n\nAuthentication:\n\n- Required (JWT)"
+					},
+					"response": [
+						{
+							"name": "Delete Task",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NjY0YWNlYjYzZDAwZTQ1M2I4MzNlNCIsImlhdCI6MTc2ODMxMTYzNywiZXhwIjoxNzY4OTE2NDM3fQ.oNjkhY6oyB6B_oB_ea3npQAipQRoSaJFScOedCBYIHk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/tasks/69664bbcb63d00e453b833eb",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"69664bbcb63d00e453b833eb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"message\": \"Task deleted\"\r\n}"
+						}
+					]
+				}
+			],
+			"description": "CRUD APIs"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
